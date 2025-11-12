@@ -1,23 +1,23 @@
 // Complete the js code
 function Car(make, model) {
-	this.make;
-	this.model;
+	this.make=make;
+	this.model=model;
 }
 
-Car.getMakeModel=function(){
+Car.prototype.getMakeModel=function(){
 		return `${this.make} ${this.model}`
 	};
 function SportsCar(make, model, topSpeed) {
-	Car.call(make,model);
-	this.topSpeed;
+	Car.call(this,make,model);
+	this.topSpeed=topSpeed;
 	
 }
 SportsCar.prototype=Object.create(Car.prototype);
 SportsCar.prototype.constructor=SportsCar;
 
-SportsCar.prototype.getTopSpeed(){
+SportsCar.prototype.getTopSpeed=function(){
 	return this.topSpeed;
-}
+};
 // Create a new SportsCar instance
 const car = new SportsCar("Ferrari", "Testarossa", 200);
 
